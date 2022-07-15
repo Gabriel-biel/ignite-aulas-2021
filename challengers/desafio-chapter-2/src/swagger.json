@@ -1,0 +1,349 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentation Chapter 2",
+    "description": "This is a one documentation for challenge 2",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a user",
+        "description": "Create e new User",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "User Sample",
+                  "email": "email_email@hotmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "admin": {
+                      "type": "boolean",
+                      "enum": [
+                        true,
+                        false
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "admin": false,
+                    "id": "03409a60-e898-4fd5-bb46-fd3c73511fd0",
+                    "name": "User Sample",
+                    "email": "email_email@hotmail.com",
+                    "created_at": "2022-06-05T04:50:51.920Z",
+                    "updated_at": "2022-06-05T04:50:51.920Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email já está sendo Utilizado!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "This email allready Exists!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Return All Users",
+        "description": "Somente usuário admin pode acessar",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "headers",
+            "description": "Return all users",
+            "required": true,
+            "type": "string",
+            "format": "uuidv4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucess operation!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "admin": {
+                      "type": "boolean",
+                      "enum": [
+                        true,
+                        false
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "example": [
+                    {
+                      "admin": false,
+                      "id": "03409a60-e898-4fd5-bb46-fd3c73511fd0",
+                      "name": "User Sample",
+                      "email": "email_email@hotmail.com",
+                      "created_at": "2022-06-05T04:50:51.920Z",
+                      "updated_at": "2022-06-05T04:50:51.920Z"
+                    },
+                    {
+                      "admin": false,
+                      "id": "03409a60-e898-4fd5-bb46-fd3c73511fd0",
+                      "name": "User Sample",
+                      "email": "email_email@hotmail.com",
+                      "created_at": "2022-06-05T04:50:51.920Z",
+                      "updated_at": "2022-06-05T04:50:51.920Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuário sem permisão ou Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "You need to be an administrador to list all users!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Retorna um usuário específico",
+        "description": "Retorna um usuário específico",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID do Usuário",
+            "required": true,
+            "type": "string",
+            "format": "uuidv4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucess operation!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "admin": {
+                      "type": "boolean",
+                      "enum": [
+                        true,
+                        false
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "admin": false,
+                    "id": "03409a60-e898-4fd5-bb46-fd3c73511fd0",
+                    "name": "User Sample",
+                    "email": "email_email@hotmail.com",
+                    "created_at": "2022-06-05T04:50:51.920Z",
+                    "updated_at": "2022-06-05T04:50:51.920Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "User not found!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}/admin": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Turn user an admin",
+        "description": "Torna o usuário admin",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "Turn user on admin",
+            "required": true,
+            "type": "string",
+            "format": "uuidv4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucess Operation!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "admin": {
+                      "type": "boolean",
+                      "enum": [
+                        "true",
+                        "false"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "admin": true,
+                    "id": "03409a60-e898-4fd5-bb46-fd3c73511fd0",
+                    "name": "User Sample",
+                    "email": "email_email@hotmail.com",
+                    "created_at": "2022-06-05T04:50:51.920Z",
+                    "updated_at": "2022-06-05T04:50:51.920Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "User not found!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
