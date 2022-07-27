@@ -4,6 +4,8 @@ Chapter IV - Testes e Regras de Negócio
 ### Diagrama
 ![image](https://user-images.githubusercontent.com/61027045/162596040-e5a0c04e-2703-472f-b92a-0eaf2dc09645.png)
 
+---
+
 # Cadastro de Carro
 
 **Requisitos Funcionais(RF)**
@@ -28,6 +30,7 @@ Chapter IV - Testes e Regras de Negócio
 => Deve ser possível listar todos os carros pelo nome do carro
 
 **Requisitos não funcionais**
+[x]
 
 **Regras de Negócio**
 => O usuário não precisa estar logado no sistema
@@ -38,6 +41,9 @@ Chapter IV - Testes e Regras de Negócio
 => Deve ser possível cadastrar uma especificação para um carro
 => Deve ser possíel listar todas as especificações
 => Deve ser possível listar todos os carros
+
+**Requisitos Não Funcionais**
+[x]
 
 **Regras de Negócio**
 => Não deve ser possível cadastrar uma especificação para um carro não cadastrado
