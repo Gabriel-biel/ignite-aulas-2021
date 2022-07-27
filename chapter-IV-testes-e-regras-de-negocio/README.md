@@ -21,8 +21,6 @@ Chapter IV - Testes e Regras de Negócio
 => O carro deve ser cadastrado, por padrã, com disponibilidade
 => O usuário responsavel pelo cadastro deve ser um adm
 
----
-
 # Listagem de Carros
 
 **Requisitos Funcionais**
@@ -36,8 +34,6 @@ Chapter IV - Testes e Regras de Negócio
 
 **Regras de Negócio**
 => O usuário não precisa estar logado no sistema
-
----
 
 # Cadastro de Especificação no Carro
 
@@ -54,7 +50,6 @@ Chapter IV - Testes e Regras de Negócio
 => Não deve ser possível cadastrar uma especificação já existente para o mesmo carro
 => O usuário responsavel pelo cadastro de um especifição deve ser um adm
 
----
 
 # Cadastro de Imagens do Carro
 
@@ -68,8 +63,6 @@ Chapter IV - Testes e Regras de Negócio
 **Regras de Negócio**
 => O usuário devev poder cadastrar mais de uma imagem para o mesmo carro
 => O usuário responsavel pelo cadastro de imagem deve ser um adm
-
----
 
 # Aluguel de Carro
 
