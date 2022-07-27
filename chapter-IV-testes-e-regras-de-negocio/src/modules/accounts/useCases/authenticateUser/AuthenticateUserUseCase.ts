@@ -2,7 +2,7 @@ import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
 import { inject, injectable } from 'tsyringe'
 
-import { AppError } from '../../../../errors/AppError'
+import { AppError } from '../../../../shared/errors/AppError'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 
 interface IRequest {
@@ -34,7 +34,7 @@ class AuthenticateUserUseCase {
     }
 
     // Usa o método compare do bcryptjs para comparar as senhas
-    const passwordMatch = compare(password, user.password)
+    const passwordMatch = await compare(password, user.password)
 
     // Se a senha Está Correta
     if (!passwordMatch) {
