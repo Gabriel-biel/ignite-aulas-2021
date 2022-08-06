@@ -9,15 +9,13 @@ Chapter IV - Testes e Regras de Negócio
 # Cadastro de Carro
 
 **Requisitos Funcionais(RF)**
-[]=> Deve ser possível cadastrar um novo carro
-//// []=> Deve ser possível listar todas as categorias ////
+[x]=> Deve ser possível cadastrar um novo carro
 
 **Requisitos Não Funcionais(RNF)**
 [x]
 
 **Regras De Negócio(RN)**
-[]=> Não deve ser possível cadastrar um carro com a placa já existente
-[]=> Não deve ser possível alterar a placa de um carro já cadastrado
+[x]=> Não deve ser possível cadastrar um carro com a placa já existente
 []=> O carro deve ser cadastrado, por padrã, com disponibilidade
 []=> O usuário responsavel pelo cadastro deve ser um adm
 
