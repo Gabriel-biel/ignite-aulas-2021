@@ -14,19 +14,25 @@ export const Container = styled.div`
     border-radius: 0.25rem;
     color: var(--text-title);
 
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    strong {
+      display: block;
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 3rem;
+    }
+    
+    &.highlihgt-background {
+      background: var(--green);
+      color: #fff;
+    }
   }
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 
-  strong {
-    display: block;
-    margin-top: 1rem;
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 3rem;
-  }
 `
