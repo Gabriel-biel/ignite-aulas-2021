@@ -7,7 +7,7 @@ import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
-class Dashboard extends Component {
+export function Dashboard() {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class Dashboard extends Component {
     }
   }
 
-  async componentDidMount() {
+  async function componentDidMount() {
     const response = await api.get('/foods');
 
     this.setState({ foods: response.data });
@@ -117,5 +117,3 @@ class Dashboard extends Component {
     );
   }
 };
-
-export default Dashboard;
