@@ -6,10 +6,12 @@ import GlobalStyle from './styles/global';
 
 export const App = (): JSX.Element => {
   return (
-    <BrowserRouter>
-      <GlobalStyle />
+    <>
+    <GlobalStyle />
+      <BrowserRouter>
         <Routes />
-    </BrowserRouter>
+      </BrowserRouter>
+    </>
   );
 };
 

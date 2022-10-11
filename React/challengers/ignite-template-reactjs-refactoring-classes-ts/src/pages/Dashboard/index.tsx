@@ -26,10 +26,10 @@ export default function Dashboard() {
 
   }, [])
 
-  async function handleAddFood() {
+  async function handleAddFood(food: IFood) {
     try {
       const response = await api.post('/foods', {
-        ...foods,
+        ...food,
         available: true,
       });
       
