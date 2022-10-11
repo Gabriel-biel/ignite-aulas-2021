@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import { Container } from './styles';
-import api from '../../services/api';
+import { api } from '../../services/api';
 
 import { IFood } from '../../types'
 
@@ -12,7 +12,7 @@ interface IFoodProps {
   handleEditFood: (food: IFood) => void,
 }
 
-export function Food ({food, handleDelete, handleEditFood}: IFoodProps) {
+export default function Food ({food, handleDelete, handleEditFood}: IFoodProps) {
 
   const [isAvailable, setIsAvailable] = useState(food.available)
 
