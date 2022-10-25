@@ -23,9 +23,9 @@ export const config = {
 
 const revelantEvents = new Set([
   'checkout.session.completed',
-  'customer.subscription.created',
-  'customer.subscription.updated',
-  'customer.subscription.deleted',
+  // 'customer.subscription.created',
+  // 'customer.subscription.updated',
+  // 'customer.subscription.deleted',
 ])
 
 export default async function HandleWebhook(request: NextApiRequest, response: NextApiResponse) {
@@ -46,28 +46,30 @@ export default async function HandleWebhook(request: NextApiRequest, response: N
     if(revelantEvents.has(type)) {
       try {
         switch (type) {
-          case 'customer.subscriptions.completed':
-          case 'customer.subscriptions.created':
-          case 'customer.subscriptions.updated':
+          // case 'customer.subscriptions.completed':
+          // case 'customer.subscriptions.created':
+          // case 'customer.subscriptions.updated':
 
-            const subscription = event.data.object as Stripe.Subscription;
+          //   const subscription = event.data.object as Stripe.Subscription;
 
-            await saveSubscription(
-              subscription.id,
-              subscription.customer.toString(),
-              type === 'customer.subscriptions.created',
-            )
+          //   await saveSubscription(
+          //     subscription.id,
+          //     subscription.customer.toString(),
+          //     // type === 'customer.subscriptions.created',
+          //   )
 
-            break;
-          case 'checkout.session.deleted':
+          //   break;
+          // case 'checkout.session.deleted':
+          case 'checkout.session.completed':
             
           const checkoutSession = event.data.object as Stripe.Checkout.Session
           
             await saveSubscription(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
-              true,
+              // true,
               )
+
           break;
           default: 
             throw new Error('Unhandled event.')

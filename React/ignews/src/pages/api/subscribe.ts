@@ -35,7 +35,6 @@ export default async function handle(request: NextApiRequest, response: NextApiR
       const stripeCustomer = await stripe.customers.create({
         // email: session.user.email,
         email: user.email,
-        // metadata?:
       })
 
       await fauna.query(
