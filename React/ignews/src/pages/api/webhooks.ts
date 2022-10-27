@@ -23,9 +23,8 @@ export const config = {
 
 const revelantEvents = new Set([
   'checkout.session.completed',
-  // 'customer.subscription.created',
-  // 'customer.subscription.updated',
-  // 'customer.subscription.deleted',
+  'customer.subscription.updated',
+  'customer.subscription.deleted',
 ])
 
 export default async function HandleWebhook(request: NextApiRequest, response: NextApiResponse) {
@@ -46,34 +45,30 @@ export default async function HandleWebhook(request: NextApiRequest, response: N
     if(revelantEvents.has(type)) {
       try {
         switch (type) {
-          // case 'customer.subscriptions.completed':
-          // case 'customer.subscriptions.created':
-          // case 'customer.subscriptions.updated':
+          case 'customer.subscription.updated':
+          case 'customer.subscription.deleted':
+            const subscription = event.data.object as Stripe.Subscription;
 
-          //   const subscription = event.data.object as Stripe.Subscription;
-
-          //   await saveSubscription(
-          //     subscription.id,
-          //     subscription.customer.toString(),
-          //     // type === 'customer.subscriptions.created',
-          //   )
-
-          //   break;
-          // case 'checkout.session.deleted':
+            await saveSubscription(
+              subscription.id,
+              subscription.customer.toString(),
+              false
+            );
+          
+            break;
           case 'checkout.session.completed':
-            
-          const checkoutSession = event.data.object as Stripe.Checkout.Session
+            const checkoutSession = event.data.object as Stripe.Checkout.Session
           
             await saveSubscription(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
-              // true,
-              )
+              true
+            );
 
-          break;
+            break;
           default: 
             throw new Error('Unhandled event.')
-        }
+        } 
       } catch (err){
         return response.json({error: 'webhook handle failed'})
       }
