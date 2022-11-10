@@ -4,7 +4,9 @@
 
 <a href='https://github.com/Gabriel-biel/ignite-aulas-2021/tree/main/React/ignews'>![Ignews-01](https://user-images.githubusercontent.com/61027045/201011755-5ac23ce0-7a49-4fb7-85e2-3c06c99c7ca0.png)</a> 
 
+<a href='https://github.com/Gabriel-biel/ignite-aulas-2021/tree/main/React/ignews'>
 ![Ignews-02](https://user-images.githubusercontent.com/61027045/201011932-6ca7eff8-bc31-4bbd-bd26-6335aee4bda4.png)
+</a>
 
 ## DtMoney
 
